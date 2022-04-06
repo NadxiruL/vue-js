@@ -8,13 +8,33 @@
     <script src="https://unpkg.com/vue@3"></script>
 
     <style>
-      .box {
-        padding: 100px;
-        width: 400px;
-        text-align: center;
-        background: #ddd;
-        margin: 20px;
-        display: inline-block;
+      body {
+        background: #eee;
+        max-width: 960px;
+        margin: 20px auto;
+      }
+
+      p,
+      h3,
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+
+      li {
+        list-style-type: none;
+        background: #fff;
+        margin: 20px auto;
+        padding: 10px 20px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      li.fav {
+        background: #ff9ed2;
+        color: #fff;
       }
     </style>
   </head>
@@ -28,7 +48,8 @@
       <div v-if="showBooks">
         <p>{{ title }} - {{ name }} {{ age }}</p>
         <ul>
-          <li v-for="item in books" class="box">
+          <li v-for="item in books" :class="{ fav: item.isFav}">
+            <img :src="item.img" :alt="item.title" />
             <h3>{{ item.title }}</h3>
             <p>{{ item.author }}</p>
           </li>
