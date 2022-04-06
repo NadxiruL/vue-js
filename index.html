@@ -6,12 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://unpkg.com/vue@3"></script>
+
+    <style>
+      .box {
+        padding: 100px;
+        width: 400px;
+        text-align: center;
+        background: #ddd;
+        margin: 20px;
+        display: inline-block;
+      }
+    </style>
   </head>
 
   <body>
     <div id="app">
+      <!-- attribute binding -->
+      <!-- use v-bind or : -->
+      <a v-bind:href="url">Best Webste Klik Here </a>
+
       <div v-if="showBooks">
         <p>{{ title }} - {{ name }} {{ age }}</p>
+        <ul>
+          <li v-for="item in books" class="box">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.author }}</p>
+          </li>
+        </ul>
       </div>
 
       <button @click="toggleShowBooks">
