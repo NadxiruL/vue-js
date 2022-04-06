@@ -48,7 +48,11 @@
       <div v-if="showBooks">
         <p>{{ title }} - {{ name }} {{ age }}</p>
         <ul>
-          <li v-for="item in books" :class="{ fav: item.isFav}">
+          <li
+            v-for="item in filteredBooks"
+            :class="{ fav: item.isFav}"
+            @click="toggleFav(item)"
+          >
             <img :src="item.img" :alt="item.title" />
             <h3>{{ item.title }}</h3>
             <p>{{ item.author }}</p>
